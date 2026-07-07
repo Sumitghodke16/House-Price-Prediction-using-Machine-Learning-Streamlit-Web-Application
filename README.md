@@ -49,11 +49,6 @@ The project covers the complete Machine Learning lifecycle, including:
 ---
 
 # 📷 Application Preview
-
-## Home Page
-
-![Home](view1.png)
-
 ---
 
 ## User Input Section
