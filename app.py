@@ -561,3 +561,17 @@ Developed by <b>Sumit Ghodke</b>
 </div>
 
 """, unsafe_allow_html=True)
+
+model = joblib.load("models/random_forest_model.pkl")
+import os
+import urllib.request
+import joblib
+
+MODEL_URL = "https://huggingface.co/Sumitghodke74kg/house-price-randomforest-model/tree/main"
+
+MODEL_PATH = "random_forest_model.pkl"
+
+if not os.path.exists(MODEL_PATH):
+    urllib.request.urlretrieve(MODEL_URL, MODEL_PATH)
+
+model = joblib.load(MODEL_PATH)
