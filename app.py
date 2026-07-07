@@ -6,7 +6,24 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import joblib
+import urllib.request
+import os
 
+# -----------------------------
+# Download Model from Hugging Face
+# -----------------------------
+
+MODEL_URL = "https://huggingface.co/Sumitghodke74kg/house-price-randomforest-model/resolve/main/random_forest_model.pkl"
+
+MODEL_PATH = "random_forest_model.pkl"
+
+if not os.path.exists(MODEL_PATH):
+    urllib.request.urlretrieve(MODEL_URL, MODEL_PATH)
+
+model = joblib.load(MODEL_PATH)
+
+scaler = joblib.load("models/scaler.pkl")
+model_columns = joblib.load("models/model_columns.pkl")
 # ==========================================
 # Page Configuration
 # ==========================================
@@ -21,9 +38,6 @@ st.set_page_config(
 # ==========================================
 # Load Saved Files
 # ==========================================
-model = joblib.load(MODEL_PATH)
-scaler = joblib.load("models/scaler.pkl")
-model_columns = joblib.load("models/model_columns.pkl")
 
 # ==========================================
 # Custom CSS
@@ -561,15 +575,3 @@ Developed by <b>Sumit Ghodke</b>
 
 """, unsafe_allow_html=True)
 
-import os
-import urllib.request
-import joblib
-
-MODEL_URL = "https://huggingface.co/Sumitghodke74kg/house-price-randomforest-model/resolve/main/random_forest_model.pkl"
-
-MODEL_PATH = "random_forest_model.pkl"
-
-if not os.path.exists(MODEL_PATH):
-    urllib.request.urlretrieve(MODEL_URL, MODEL_PATH)
-
-model = joblib.load(MODEL_PATH)
