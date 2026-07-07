@@ -21,8 +21,7 @@ st.set_page_config(
 # ==========================================
 # Load Saved Files
 # ==========================================
-
-model = joblib.load("models/random_forest_model.pkl")
+model = joblib.load(MODEL_PATH)
 scaler = joblib.load("models/scaler.pkl")
 model_columns = joblib.load("models/model_columns.pkl")
 
@@ -562,12 +561,11 @@ Developed by <b>Sumit Ghodke</b>
 
 """, unsafe_allow_html=True)
 
-model = joblib.load("models/random_forest_model.pkl")
 import os
 import urllib.request
 import joblib
 
-MODEL_URL = "https://huggingface.co/Sumitghodke74kg/house-price-randomforest-model/tree/main"
+MODEL_URL = "https://huggingface.co/Sumitghodke74kg/house-price-randomforest-model/resolve/main/random_forest_model.pkl"
 
 MODEL_PATH = "random_forest_model.pkl"
 
